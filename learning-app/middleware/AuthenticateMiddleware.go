@@ -37,7 +37,7 @@ func ValidateJWTToken(tokenString string) (jwt.MapClaims, error) {
 		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
 			return nil, jwt.ErrSignatureInvalid
 		}
-		return []byte(os.Getenv("JWT_SECRET")), nil
+		return []byte(os.Getenv("SECRET")), nil
 	})
 	if err != nil {
 		return nil, err
